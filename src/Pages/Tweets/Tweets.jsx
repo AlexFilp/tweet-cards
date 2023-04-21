@@ -29,6 +29,7 @@ const Tweets = () => {
   const [filter, setFilter] = useState(statusFilters.all);
   const [page, setPage] = useState(1);
   const [showLoadBtn, setShowLoadBtn] = useState(false);
+  const [isStatusFiltersAll, setisStatusFiltersAll] = useState(true);
 
   useEffect(() => {
     setShowLoadBtn(false);
@@ -39,8 +40,12 @@ const Tweets = () => {
         setUsers(prevState => [...prevState, ...data]);
         setIsLoading(false);
         setShowLoadBtn(true);
+        if (users.length + data.length >= 12) {
+          setShowLoadBtn(false);
+        }
       })
       .catch(err => console.log(err));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   const doFollowUser = (id, followers) => {
@@ -91,6 +96,7 @@ const Tweets = () => {
         filter={filter}
         setFilter={setFilter}
         statusFilters={statusFilters}
+        setisStatusFiltersAll={setisStatusFiltersAll}
       />
       {isLoading ? (
         <PageLoader />
@@ -114,7 +120,7 @@ const Tweets = () => {
           )}
         </CardList>
       )}
-      {showLoadBtn && (
+      {showLoadBtn && isStatusFiltersAll && (
         <LoadMoreBtn onClick={() => setPage(prevState => prevState + 1)}>
           Load more
         </LoadMoreBtn>
