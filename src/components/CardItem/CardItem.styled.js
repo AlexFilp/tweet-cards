@@ -1,18 +1,6 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
-export const Container = styled.div`
-  padding-top: 200px;
-  padding-bottom: 10px;
-  width: 100%;
-  height: 100%;
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-`;
-
-export const CardContainer = styled.div`
+export const CardContainer = styled.li`
   position: relative;
   padding-top: 214px;
   width: 380px;
@@ -39,13 +27,24 @@ export const CardImage = styled.img`
   left: 36px;
 `;
 
-export const BoyImg = styled.img`
+export const ImgCircle = styled.img`
   position: absolute;
-  top: 180px;
-  left: 150px;
+  top: -34px;
+  left: 50%;
+  transform: translateX(-50%);
+`;
+
+export const Avatar = styled.img`
+  position: absolute;
+  top: -27px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  border-radius: 50px;
 `;
 
 export const Line = styled.div`
+  position: relative;
   width: 100%;
   height: 8px;
   background-color: #ebd8ff;
@@ -54,20 +53,29 @@ export const Line = styled.div`
   margin-bottom: 45px;
 `;
 
-export const HomeTitle = styled.h1`
-  font-size: 40px;
+export const CardTweets = styled.p`
+  font-size: 20px;
+  line-height: 24px;
   color: #ebd8ff;
-  margin-bottom: 44px;
   font-family: 'Montserrat-Medium';
-  letter-spacing: 3px;
+  margin-bottom: 16px;
 `;
 
-export const HomeLink = styled(Link)`
+export const CardFolowers = styled.p`
+  font-size: 20px;
+  line-height: 24px;
+  color: #ebd8ff;
+  font-family: 'Montserrat-Medium';
+  margin-bottom: 26px;
+`;
+
+export const CardBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: auto;
   margin-left: auto;
+  border: none;
   background-color: #ebd8ff;
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
   border-radius: 10.3108px;
