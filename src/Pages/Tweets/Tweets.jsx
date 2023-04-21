@@ -1,32 +1,20 @@
-import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { CardContainer, CardList, GoBackLink, BtnList } from './Tweets.styled';
+import {
+  CardContainer,
+  CardList,
+  GoBackLink,
+  LoadMoreBtn,
+} from './Tweets.styled';
 import { CardsItem } from '../../components/CardItem/CardsItem';
-import { FilterButton } from '../../components/FilterButton/FilterButton';
+import { FilterBtnList } from '../../components/FilterBtnList/FilterBtnList';
 import { PageLoader } from '../../components/PageLoader/PageLoader';
-
-axios.defaults.baseURL = 'https://64425d6633997d3ef90e4627.mockapi.io';
-
-async function fetchUsers() {
-  const response = await axios.get('/tweets');
-  return response.data;
-}
-
-async function followUser(id, followers) {
-  const response = await axios.put(`/tweets/${id}`, {
-    followers: followers + 1,
-    followed: true,
-  });
-  return response.data;
-}
-
-async function unfollowUser(id, followers) {
-  const response = await axios.put(`/tweets/${id}`, {
-    followers: followers - 1,
-    followed: false,
-  });
-  return response.data;
-}
+// CardAPIs
+import {
+  firstFetchUsers,
+  fetchUsers,
+  followUser,
+  unfollowUser,
+} from '../../CardsAPI';
 
 const statusFilters = {
   all: 'all',
@@ -39,22 +27,26 @@ const Tweets = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [loadingFollow, setLoadingFollow] = useState(false);
   const [filter, setFilter] = useState(statusFilters.all);
+  const [page, setPage] = useState(1);
+  const [showLoadBtn, setShowLoadBtn] = useState(false);
 
   useEffect(() => {
+    setShowLoadBtn(false);
     setIsLoading(true);
-    fetchUsers()
+    firstFetchUsers(page)
       .then(data => {
         console.log(data);
-        setUsers(data);
+        setUsers(prevState => [...prevState, ...data]);
         setIsLoading(false);
+        setShowLoadBtn(true);
       })
       .catch(err => console.log(err));
-  }, []);
+  }, [page]);
 
   const doFollowUser = (id, followers) => {
     setLoadingFollow(true);
     followUser(id, followers).then(data => {
-      fetchUsers()
+      fetchUsers(page)
         .then(data => {
           console.log(data);
           setUsers(data);
@@ -68,7 +60,7 @@ const Tweets = () => {
   const doUnfollowUser = (id, followers) => {
     setLoadingFollow(true);
     unfollowUser(id, followers).then(data => {
-      fetchUsers()
+      fetchUsers(page)
         .then(data => {
           console.log(data);
           setUsers(data);
@@ -79,7 +71,7 @@ const Tweets = () => {
     });
   };
 
-  const getVisibleTasks = (users, statusFilter) => {
+  const getVisibleUsers = (users, statusFilter) => {
     switch (statusFilter) {
       case statusFilters.notFollowed:
         return users.filter(user => user.followed === false);
@@ -90,42 +82,21 @@ const Tweets = () => {
     }
   };
 
-  const visibleCards = getVisibleTasks(users, filter);
+  const visibleUsers = getVisibleUsers(users, filter);
 
   return (
     <CardContainer>
       <GoBackLink to="/">GO BACK</GoBackLink>
-      <BtnList>
-        <li>
-          <FilterButton
-            selected={filter === statusFilters.followed}
-            onClick={() => setFilter(statusFilters.followed)}
-          >
-            FOLLOWED
-          </FilterButton>
-        </li>
-        <li>
-          <FilterButton
-            selected={filter === statusFilters.all}
-            onClick={() => setFilter(statusFilters.all)}
-          >
-            ALL
-          </FilterButton>
-        </li>
-        <li>
-          <FilterButton
-            selected={filter === statusFilters.notFollowed}
-            onClick={() => setFilter(statusFilters.notFollowed)}
-          >
-            NOT FOLLOWED
-          </FilterButton>
-        </li>
-      </BtnList>
+      <FilterBtnList
+        filter={filter}
+        setFilter={setFilter}
+        statusFilters={statusFilters}
+      />
       {isLoading ? (
         <PageLoader />
       ) : (
         <CardList>
-          {visibleCards.map(
+          {visibleUsers.map(
             ({ id, name, followers, tweets, avatar, followed }) => (
               <CardsItem
                 key={id}
@@ -142,6 +113,11 @@ const Tweets = () => {
             )
           )}
         </CardList>
+      )}
+      {showLoadBtn && (
+        <LoadMoreBtn onClick={() => setPage(prevState => prevState + 1)}>
+          Load more
+        </LoadMoreBtn>
       )}
     </CardContainer>
   );

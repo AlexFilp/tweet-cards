@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const CardContainer = styled.div`
   padding-top: 80px;
-  padding-bottom: 30px;
+  padding-bottom: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,13 +43,7 @@ export const GoBackLink = styled(Link)`
   }
 `;
 
-export const BtnList = styled.ul`
-  display: flex;
-  gap: 25px;
-  margin-bottom: 20px;
-`;
-
-export const FilterBtn = styled.button`
+export const LoadMoreBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,6 +58,7 @@ export const FilterBtn = styled.button`
   transition: transform 250ms ease-in, background-color 250ms ease-in;
   color: #373737;
   font-family: 'Montserrat-SemiBold';
+  margin-top: 20px;
 
   &:hover,
   &:focus {
