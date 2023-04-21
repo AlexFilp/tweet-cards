@@ -1,13 +1,6 @@
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import {
-  CardContainer,
-  CardList,
-  GoBackLink,
-  BtnList,
-  FilterBtn,
-} from './Tweets.styled';
+import { CardContainer, CardList, GoBackLink, BtnList } from './Tweets.styled';
 import { CardsItem } from '../../components/CardItem/CardsItem';
 import { FilterButton } from '../../components/FilterButton/FilterButton';
 import { PageLoader } from '../../components/PageLoader/PageLoader';

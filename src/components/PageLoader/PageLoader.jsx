@@ -1,4 +1,4 @@
-import { LoaderContainer, Loader } from './PageLoader.styled';
+import { LoaderContainer } from './PageLoader.styled';
 import { Watch } from 'react-loader-spinner';
 
 export const PageLoader = () => {
