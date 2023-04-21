@@ -12,7 +12,7 @@ async function fetchUsers() {
   return response.data;
 }
 
-async function followUser(id, followers, followed) {
+async function followUser(id, followers) {
   const response = await axios.put(`/tweets/${id}`, {
     followers: followers + 1,
     followed: true,
@@ -20,7 +20,7 @@ async function followUser(id, followers, followed) {
   return response.data;
 }
 
-async function unfollowUser(id, followers, followed) {
+async function unfollowUser(id, followers) {
   const response = await axios.put(`/tweets/${id}`, {
     followers: followers - 1,
     followed: false,
