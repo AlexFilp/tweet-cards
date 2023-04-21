@@ -7,13 +7,11 @@ import {
   Line,
   CardTweets,
   CardFolowers,
-  CardBtn,
 } from './CardItem.styled';
 import goitIcon from '../../assets/Images/Goit-icon.png';
 import cardImg from '../../assets/Images/card-img.png';
 import imageContainer from '../../assets/Images/circle.png';
 import { FollowButton } from '../../components/FollowBtn/FollowBtn';
-import { useState } from 'react';
 
 export const CardsItem = ({
   followers,
@@ -25,7 +23,6 @@ export const CardsItem = ({
   isLoading,
   followed,
 }) => {
-  const [isFollowed, setIsFollowed] = useState(false);
   // const [isLoading, setIsLoading] = useState(false);
 
   const getFollowers = () => {
@@ -37,12 +34,10 @@ export const CardsItem = ({
 
   const follow = () => {
     doFollowUser(id, followers);
-    setIsFollowed(true);
   };
 
   const unfollow = () => {
     doUnfollowUser(id, followers);
-    setIsFollowed(false);
   };
 
   return (
