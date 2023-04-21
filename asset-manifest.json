@@ -1,21 +1,25 @@
 {
   "files": {
     "main.css": "/tweet-cards/static/css/main.84eb78e3.css",
-    "main.js": "/tweet-cards/static/js/main.efb6e1de.js",
-    "static/js/807.e9326c00.chunk.js": "/tweet-cards/static/js/807.e9326c00.chunk.js",
-    "static/js/324.8fcd9181.chunk.js": "/tweet-cards/static/js/324.8fcd9181.chunk.js",
+    "main.js": "/tweet-cards/static/js/main.135acd95.js",
+    "static/js/53.7262895c.chunk.js": "/tweet-cards/static/js/53.7262895c.chunk.js",
+    "static/css/812.b267ea22.chunk.css": "/tweet-cards/static/css/812.b267ea22.chunk.css",
+    "static/js/812.a893c68b.chunk.js": "/tweet-cards/static/js/812.a893c68b.chunk.js",
+    "static/js/5.757327dd.chunk.js": "/tweet-cards/static/js/5.757327dd.chunk.js",
     "static/media/Montserrat-SemiBold.ttf": "/tweet-cards/static/media/Montserrat-SemiBold.62b8eee010e3957d425f.ttf",
     "static/media/Montserrat-Medium.ttf": "/tweet-cards/static/media/Montserrat-Medium.a281f04d4c8926e7dea1.ttf",
     "static/media/card-img.png": "/tweet-cards/static/media/card-img.b3d9942b3f9d5dad1ff0.png",
     "static/media/boy.png": "/tweet-cards/static/media/boy.37d9213a0098ea1190a0.png",
     "index.html": "/tweet-cards/index.html",
     "main.84eb78e3.css.map": "/tweet-cards/static/css/main.84eb78e3.css.map",
-    "main.efb6e1de.js.map": "/tweet-cards/static/js/main.efb6e1de.js.map",
-    "807.e9326c00.chunk.js.map": "/tweet-cards/static/js/807.e9326c00.chunk.js.map",
-    "324.8fcd9181.chunk.js.map": "/tweet-cards/static/js/324.8fcd9181.chunk.js.map"
+    "main.135acd95.js.map": "/tweet-cards/static/js/main.135acd95.js.map",
+    "53.7262895c.chunk.js.map": "/tweet-cards/static/js/53.7262895c.chunk.js.map",
+    "812.b267ea22.chunk.css.map": "/tweet-cards/static/css/812.b267ea22.chunk.css.map",
+    "812.a893c68b.chunk.js.map": "/tweet-cards/static/js/812.a893c68b.chunk.js.map",
+    "5.757327dd.chunk.js.map": "/tweet-cards/static/js/5.757327dd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.84eb78e3.css",
-    "static/js/main.efb6e1de.js"
+    "static/js/main.135acd95.js"
   ]
 }
