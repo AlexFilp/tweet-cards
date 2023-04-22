@@ -62,11 +62,11 @@ const Tweets = () => {
     if (users.length >= allUsers) {
       setShowLoadBtn(false);
     }
-  }, [users]);
+  }, [users, allUsers]);
 
   const doFollowUser = (id, followers) => {
     setLoadingFollow(true);
-    followUser(id, followers).then(data => {
+    followUser(id, followers).then(() => {
       fetchUsers(page)
         .then(data => {
           console.log(data);
@@ -80,7 +80,7 @@ const Tweets = () => {
 
   const doUnfollowUser = (id, followers) => {
     setLoadingFollow(true);
-    unfollowUser(id, followers).then(data => {
+    unfollowUser(id, followers).then(() => {
       fetchUsers(page)
         .then(data => {
           console.log(data);
