@@ -7,7 +7,7 @@ import {
   LoadMoreBtn,
   LoaderContainer,
 } from './Tweets.styled';
-
+import { ScrollUpButton } from '../../components/ScrollUpBtn/ScrollUpBtn';
 import { CardsItem } from '../../components/CardItem/CardsItem';
 import { FilterBtnList } from '../../components/FilterBtnList/FilterBtnList';
 import { TweetsPageLoader } from '../../components/PageLoader/TweetsPageLoader';
@@ -147,6 +147,7 @@ const Tweets = () => {
           Load more
         </LoadMoreBtn>
       )}
+      <ScrollUpButton />
       <div ref={cardsEndRef} />
     </CardContainer>
   );
