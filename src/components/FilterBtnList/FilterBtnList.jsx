@@ -1,5 +1,9 @@
-import { FilterButton } from '../FilterButton/FilterButton';
-import { BtnList } from './FilterBtnList.styled';
+import {
+  BtnList,
+  FollowedButton,
+  NotfollowedButton,
+  AllButton,
+} from './FilterBtnList.styled';
 
 export const FilterBtnList = ({
   filter,
@@ -10,7 +14,7 @@ export const FilterBtnList = ({
   return (
     <BtnList>
       <li>
-        <FilterButton
+        <FollowedButton
           selected={filter === statusFilters.followed}
           onClick={() => {
             setFilter(statusFilters.followed);
@@ -18,10 +22,10 @@ export const FilterBtnList = ({
           }}
         >
           FOLLOWED
-        </FilterButton>
+        </FollowedButton>
       </li>
       <li>
-        <FilterButton
+        <AllButton
           selected={filter === statusFilters.all}
           onClick={() => {
             setFilter(statusFilters.all);
@@ -29,10 +33,10 @@ export const FilterBtnList = ({
           }}
         >
           ALL
-        </FilterButton>
+        </AllButton>
       </li>
       <li>
-        <FilterButton
+        <NotfollowedButton
           selected={filter === statusFilters.notFollowed}
           onClick={() => {
             setFilter(statusFilters.notFollowed);
@@ -40,8 +44,20 @@ export const FilterBtnList = ({
           }}
         >
           NOT FOLLOWED
-        </FilterButton>
+        </NotfollowedButton>
       </li>
     </BtnList>
   );
 };
+
+/* <Wrapper onClick={handleChange} isClick={isClick} />;
+
+const Wrapper = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: ${({ isClick }) => (isClick ? 'green' : 'red')};
+`;
+
+const handleChange = () => {
+  setIsCLick(prev => !prev);
+}; */

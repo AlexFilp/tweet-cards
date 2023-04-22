@@ -32,15 +32,3 @@ export async function unfollowUser(id, followers) {
   });
   return response.data;
 }
-
-/* <Wrapper onClick={handleChange} isClick={isClick} />;
-
-const Wrapper = styled.div`
-  width: 100px;
-  height: 100px;
-  background-color: ${({ isClick }) => (isClick ? 'green' : 'red')};
-`;
-
-const handleChange = () => {
-  setIsCLick(prev => !prev);
-}; */

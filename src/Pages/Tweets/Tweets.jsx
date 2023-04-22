@@ -62,7 +62,8 @@ const Tweets = () => {
     if (users.length >= allUsers) {
       setShowLoadBtn(false);
     }
-  }, [users, allUsers]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [users.length, allUsers]);
 
   const doFollowUser = (id, followers) => {
     setLoadingFollow(true);
