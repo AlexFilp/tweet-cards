@@ -1,15 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet';
 import {
   CardContainer,
   CardList,
   GoBackLink,
   LoadMoreBtn,
+  LoaderContainer,
 } from './Tweets.styled';
+
 import { CardsItem } from '../../components/CardItem/CardsItem';
 import { FilterBtnList } from '../../components/FilterBtnList/FilterBtnList';
-import { PageLoader } from '../../components/PageLoader/PageLoader';
+import { TweetsPageLoader } from '../../components/PageLoader/TweetsPageLoader';
 // CardAPIs
 import {
+  fetchAllCards,
   firstFetchUsers,
   fetchUsers,
   followUser,
@@ -24,29 +28,41 @@ const statusFilters = {
 
 const Tweets = () => {
   const [users, setUsers] = useState([]);
+  const [allUsers, setAllUsers] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [loadingFollow, setLoadingFollow] = useState(false);
   const [filter, setFilter] = useState(statusFilters.all);
   const [page, setPage] = useState(1);
   const [showLoadBtn, setShowLoadBtn] = useState(false);
   const [isStatusFiltersAll, setisStatusFiltersAll] = useState(true);
+  const cardsEndRef = useRef(null);
 
   useEffect(() => {
-    setShowLoadBtn(false);
     setIsLoading(true);
-    firstFetchUsers(page)
+    fetchAllCards()
       .then(data => {
-        console.log(data);
-        setUsers(prevState => [...prevState, ...data]);
-        setIsLoading(false);
-        setShowLoadBtn(true);
-        if (users.length + data.length >= 12) {
-          setShowLoadBtn(false);
-        }
+        setAllUsers(data.length);
+        firstFetchUsers(page).then(data => {
+          console.log(data);
+          setUsers(prevState => [...prevState, ...data]);
+          setShowLoadBtn(true);
+        });
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err))
+      .finally(() => {
+        setIsLoading(false);
+      });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
+
+  useEffect(() => {
+    cardsEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    console.log(users);
+    console.log(allUsers);
+    if (users.length >= allUsers) {
+      setShowLoadBtn(false);
+    }
+  }, [users]);
 
   const doFollowUser = (id, followers) => {
     setLoadingFollow(true);
@@ -91,6 +107,9 @@ const Tweets = () => {
 
   return (
     <CardContainer>
+      <Helmet>
+        <title>Tweets</title>
+      </Helmet>
       <GoBackLink to="/">GO BACK</GoBackLink>
       <FilterBtnList
         filter={filter}
@@ -98,33 +117,36 @@ const Tweets = () => {
         statusFilters={statusFilters}
         setisStatusFiltersAll={setisStatusFiltersAll}
       />
-      {isLoading ? (
-        <PageLoader />
-      ) : (
-        <CardList>
-          {visibleUsers.map(
-            ({ id, name, followers, tweets, avatar, followed }) => (
-              <CardsItem
-                key={id}
-                name={name}
-                followers={followers}
-                tweets={tweets}
-                avatar={avatar}
-                id={id}
-                followed={followed}
-                isLoading={loadingFollow}
-                doFollowUser={doFollowUser}
-                doUnfollowUser={doUnfollowUser}
-              />
-            )
-          )}
-        </CardList>
-      )}
+
+      <CardList>
+        {visibleUsers.map(
+          ({ id, name, followers, tweets, avatar, followed }) => (
+            <CardsItem
+              key={id}
+              name={name}
+              followers={followers}
+              tweets={tweets}
+              avatar={avatar}
+              id={id}
+              followed={followed}
+              isLoading={loadingFollow}
+              doFollowUser={doFollowUser}
+              doUnfollowUser={doUnfollowUser}
+            />
+          )
+        )}
+      </CardList>
+      <LoaderContainer>{isLoading && <TweetsPageLoader />}</LoaderContainer>
       {showLoadBtn && isStatusFiltersAll && (
-        <LoadMoreBtn onClick={() => setPage(prevState => prevState + 1)}>
+        <LoadMoreBtn
+          onClick={() => {
+            setPage(prevState => prevState + 1);
+          }}
+        >
           Load more
         </LoadMoreBtn>
       )}
+      <div ref={cardsEndRef} />
     </CardContainer>
   );
 };

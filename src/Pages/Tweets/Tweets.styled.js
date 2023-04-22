@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const CardContainer = styled.div`
-  padding-top: 80px;
+  padding-top: 20px;
   padding-bottom: 15px;
   display: flex;
   flex-direction: column;
@@ -58,11 +58,20 @@ export const LoadMoreBtn = styled.button`
   transition: transform 250ms ease-in, background-color 250ms ease-in;
   color: #373737;
   font-family: 'Montserrat-SemiBold';
-  margin-top: 20px;
+  margin-top: 10px;
 
   &:hover,
   &:focus {
     transform: scale(1.1);
     background-color: #5cd3a8;
   }
+`;
+
+export const LoaderContainer = styled.div`
+  margin-top: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

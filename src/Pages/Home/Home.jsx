@@ -11,10 +11,14 @@ import {
 import goitIcon from '../../assets/Images/Goit-icon.png';
 import cardImg from '../../assets/Images/card-img.png';
 import boyImg from '../../assets/Images/boy.png';
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
   return (
     <Container>
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
       <CardContainer>
         <CardIcon src={goitIcon} alt="GOIT ICON" width="76" height="22" />
         <CardImage src={cardImg} alt="CARD IMG" width="308" height="168" />

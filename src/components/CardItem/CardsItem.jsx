@@ -40,6 +40,8 @@ export const CardsItem = ({
     doUnfollowUser(id, followers);
   };
 
+  const followersNumber = getFollowers();
+
   return (
     <CardContainer>
       <CardIcon src={goitIcon} alt="GOIT ICON" width="76" height="22" />
@@ -50,7 +52,7 @@ export const CardsItem = ({
         <ImgCircle src={imageContainer} alt="BOY IMG" width="80" height="80" />
       </Line>
       <CardTweets>{tweets} TWEETS</CardTweets>
-      <CardFolowers>{getFollowers()} FOLLOWERS</CardFolowers>
+      <CardFolowers>{followersNumber} FOLLOWERS</CardFolowers>
       <FollowButton
         selected={followed}
         disabled={isLoading ? true : false}
