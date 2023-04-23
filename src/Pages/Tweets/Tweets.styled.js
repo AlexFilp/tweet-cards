@@ -55,20 +55,19 @@ export const LoadMoreBtn = styled.button`
   height: 50px;
   font-size: 18px;
   line-height: 1.2;
-  transition: transform 250ms ease-in, background-color 250ms ease-in;
+  transition: transform 250ms ease-in;
   color: #373737;
   font-family: 'Montserrat-SemiBold';
-  margin-top: 10px;
+  margin-top: 20px;
 
   &:hover,
   &:focus {
     transform: scale(1.1);
-    background-color: #5cd3a8;
   }
 `;
 
 export const LoaderContainer = styled.div`
-  margin-top: 10px;
+  margin-top: 105px;
   width: 40px;
   height: 40px;
   display: flex;

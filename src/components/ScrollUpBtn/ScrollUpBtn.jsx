@@ -5,7 +5,7 @@ export const ScrollUpButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
-    if (window.pageYOffset > 300) {
+    if (window.pageYOffset > 170) {
       setIsVisible(true);
     } else {
       setIsVisible(false);

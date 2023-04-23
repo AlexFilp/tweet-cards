@@ -11,6 +11,7 @@ import { ScrollUpButton } from '../../components/ScrollUpBtn/ScrollUpBtn';
 import { CardsItem } from '../../components/CardItem/CardsItem';
 import { FilterBtnList } from '../../components/FilterBtnList/FilterBtnList';
 import { TweetsPageLoader } from '../../components/PageLoader/TweetsPageLoader';
+import { PageLoader } from '../../components/PageLoader/PageLoader';
 // CardAPIs
 import {
   fetchAllCards,
@@ -29,6 +30,7 @@ const statusFilters = {
 const Tweets = () => {
   const [users, setUsers] = useState([]);
   const [allUsers, setAllUsers] = useState(0);
+  const [isFirstLoading, setIsFirstLoading] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [loadingFollow, setLoadingFollow] = useState(false);
   const [filter, setFilter] = useState(statusFilters.all);
@@ -51,6 +53,7 @@ const Tweets = () => {
       .catch(err => console.log(err))
       .finally(() => {
         setIsLoading(false);
+        setIsFirstLoading(false);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
@@ -72,10 +75,11 @@ const Tweets = () => {
         .then(data => {
           console.log(data);
           setUsers(data);
-          setIsLoading(false);
-          setLoadingFollow(false);
         })
-        .catch(err => console.log(err));
+        .catch(err => console.log(err))
+        .finally(() => {
+          setLoadingFollow(false);
+        });
     });
   };
 
@@ -86,10 +90,11 @@ const Tweets = () => {
         .then(data => {
           console.log(data);
           setUsers(data);
-          setIsLoading(false);
-          setLoadingFollow(false);
         })
-        .catch(err => console.log(err));
+        .catch(err => console.log(err))
+        .finally(() => {
+          setLoadingFollow(false);
+        });
     });
   };
 
@@ -118,7 +123,11 @@ const Tweets = () => {
         statusFilters={statusFilters}
         setisStatusFiltersAll={setisStatusFiltersAll}
       />
-
+      {isFirstLoading && (
+        <LoaderContainer>
+          <PageLoader />
+        </LoaderContainer>
+      )}
       <CardList>
         {visibleUsers.map(
           ({ id, name, followers, tweets, avatar, followed }) => (
@@ -137,14 +146,13 @@ const Tweets = () => {
           )
         )}
       </CardList>
-      <LoaderContainer>{isLoading && <TweetsPageLoader />}</LoaderContainer>
       {showLoadBtn && isStatusFiltersAll && (
         <LoadMoreBtn
           onClick={() => {
             setPage(prevState => prevState + 1);
           }}
         >
-          Load more
+          {isLoading ? <TweetsPageLoader /> : 'Load More'}
         </LoadMoreBtn>
       )}
       <ScrollUpButton />
