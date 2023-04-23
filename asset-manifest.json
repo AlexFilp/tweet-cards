@@ -1,29 +1,27 @@
 {
   "files": {
     "main.css": "/tweet-cards/static/css/main.84eb78e3.css",
-    "main.js": "/tweet-cards/static/js/main.1f5614a7.js",
+    "main.js": "/tweet-cards/static/js/main.4ef1d119.js",
     "static/js/53.7d7de0bb.chunk.js": "/tweet-cards/static/js/53.7d7de0bb.chunk.js",
-    "static/css/490.01b461e9.chunk.css": "/tweet-cards/static/css/490.01b461e9.chunk.css",
-    "static/js/490.ff367658.chunk.js": "/tweet-cards/static/js/490.ff367658.chunk.js",
+    "static/js/921.955c8b55.chunk.js": "/tweet-cards/static/js/921.955c8b55.chunk.js",
     "static/js/270.cdca11d3.chunk.js": "/tweet-cards/static/js/270.cdca11d3.chunk.js",
-    "static/css/832.b09db28b.chunk.css": "/tweet-cards/static/css/832.b09db28b.chunk.css",
-    "static/js/832.fa86514e.chunk.js": "/tweet-cards/static/js/832.fa86514e.chunk.js",
+    "static/css/415.44d6c93e.chunk.css": "/tweet-cards/static/css/415.44d6c93e.chunk.css",
+    "static/js/415.b6cfa70b.chunk.js": "/tweet-cards/static/js/415.b6cfa70b.chunk.js",
     "static/media/Montserrat-SemiBold.ttf": "/tweet-cards/static/media/Montserrat-SemiBold.62b8eee010e3957d425f.ttf",
     "static/media/Montserrat-Medium.ttf": "/tweet-cards/static/media/Montserrat-Medium.a281f04d4c8926e7dea1.ttf",
     "static/media/card-img.png": "/tweet-cards/static/media/card-img.b3d9942b3f9d5dad1ff0.png",
     "static/media/boy.png": "/tweet-cards/static/media/boy.37d9213a0098ea1190a0.png",
     "index.html": "/tweet-cards/index.html",
     "main.84eb78e3.css.map": "/tweet-cards/static/css/main.84eb78e3.css.map",
-    "main.1f5614a7.js.map": "/tweet-cards/static/js/main.1f5614a7.js.map",
+    "main.4ef1d119.js.map": "/tweet-cards/static/js/main.4ef1d119.js.map",
     "53.7d7de0bb.chunk.js.map": "/tweet-cards/static/js/53.7d7de0bb.chunk.js.map",
-    "490.01b461e9.chunk.css.map": "/tweet-cards/static/css/490.01b461e9.chunk.css.map",
-    "490.ff367658.chunk.js.map": "/tweet-cards/static/js/490.ff367658.chunk.js.map",
+    "921.955c8b55.chunk.js.map": "/tweet-cards/static/js/921.955c8b55.chunk.js.map",
     "270.cdca11d3.chunk.js.map": "/tweet-cards/static/js/270.cdca11d3.chunk.js.map",
-    "832.b09db28b.chunk.css.map": "/tweet-cards/static/css/832.b09db28b.chunk.css.map",
-    "832.fa86514e.chunk.js.map": "/tweet-cards/static/js/832.fa86514e.chunk.js.map"
+    "415.44d6c93e.chunk.css.map": "/tweet-cards/static/css/415.44d6c93e.chunk.css.map",
+    "415.b6cfa70b.chunk.js.map": "/tweet-cards/static/js/415.b6cfa70b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.84eb78e3.css",
-    "static/js/main.1f5614a7.js"
+    "static/js/main.4ef1d119.js"
   ]
 }
