@@ -58,7 +58,7 @@ export const HomeTitle = styled.h1`
   font-size: 40px;
   color: #ebd8ff;
   margin-bottom: 44px;
-  font-family: 'Montserrat-Medium';
+  font-family: 'Montserrat-Medium', sans-serif;
   letter-spacing: 3px;
 `;
 
@@ -77,8 +77,6 @@ export const HomeLink = styled(Link)`
   line-height: 1.2;
   transition: transform 250ms ease-in;
   color: #373737;
-  font-family: 'Montserrat-SemiBold';
-
   &:hover,
   &:focus {
     transform: scale(1.1);

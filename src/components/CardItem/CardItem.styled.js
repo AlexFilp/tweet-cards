@@ -57,7 +57,7 @@ export const CardTweets = styled.p`
   font-size: 20px;
   line-height: 24px;
   color: #ebd8ff;
-  font-family: 'Montserrat-Medium';
+  font-family: 'Montserrat-Medium', sans-serif;
   margin-bottom: 16px;
 `;
 
@@ -65,7 +65,7 @@ export const CardFolowers = styled.p`
   font-size: 20px;
   line-height: 24px;
   color: #ebd8ff;
-  font-family: 'Montserrat-Medium';
+  font-family: 'Montserrat-Medium', sans-serif;
   margin-bottom: 26px;
 `;
 
@@ -85,7 +85,6 @@ export const FollowButton = styled.button`
   line-height: 1.2;
   transition: transform 250ms ease-in;
   color: #373737;
-  font-family: 'Montserrat-SemiBold';
 
   &:hover,
   &:focus {
@@ -109,7 +108,6 @@ export const CardBtn = styled.button`
   line-height: 1.2;
   transition: transform 250ms ease-in;
   color: #373737;
-  font-family: 'Montserrat-SemiBold';
 
   &:hover,
   &:focus {

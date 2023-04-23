@@ -35,7 +35,6 @@ export const GoBackLink = styled(Link)`
   line-height: 1.2;
   transition: transform 250ms ease-in;
   color: #373737;
-  font-family: 'Montserrat-SemiBold';
 
   &:hover,
   &:focus {
@@ -57,7 +56,7 @@ export const LoadMoreBtn = styled.button`
   line-height: 1.2;
   transition: transform 250ms ease-in;
   color: #373737;
-  font-family: 'Montserrat-SemiBold';
+
   margin-top: 20px;
 
   &:hover,

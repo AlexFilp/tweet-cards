@@ -4,7 +4,7 @@ import { App } from 'components/App';
 import { BrowserRouter } from 'react-router-dom';
 import './assets/Fonts/Montserrat-Medium.ttf';
 import './assets/Fonts/Montserrat-SemiBold.ttf';
-import './index.css';
+import './fonts.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
