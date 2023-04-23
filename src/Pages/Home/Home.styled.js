@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
-  padding-top: 250px;
-  padding-bottom: 10px;
+  padding-top: 190px;
+
   width: 100%;
   height: 100%;
   display: flex;

@@ -15,7 +15,7 @@ export const Button = styled.button`
 `;
 
 export const ScrollBtn = styled(BsFillFileArrowUpFill)`
-  color: #5736a3;
+  color: #ebd8ff;
   width: 60px;
   height: 60px;
   cursor: pointer;

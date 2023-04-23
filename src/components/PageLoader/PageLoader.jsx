@@ -8,7 +8,7 @@ export const PageLoader = () => {
         height="100"
         width="100"
         radius="48"
-        color="#5736A3"
+        color="#ebd8ff"
         ariaLabel="watch-loading"
         wrapperStyle={{}}
         wrapperClassName=""

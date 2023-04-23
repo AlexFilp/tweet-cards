@@ -9,7 +9,13 @@ const TweetsPage = lazy(() => import('../Pages/Tweets/Tweets'));
 
 export const App = () => {
   return (
-    <div>
+    <div
+      style={{
+        minWidth: '100vw',
+        minHeight: '100vh',
+        backgroundColor: '#8A2BE2',
+      }}
+    >
       <Suspense
         fallback={
           <div style={{ paddingTop: 250 }}>

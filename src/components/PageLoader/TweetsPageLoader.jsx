@@ -8,7 +8,7 @@ export const TweetsPageLoader = () => {
         height="40"
         width="40"
         radius="48"
-        color="#5736A3"
+        color="#ebd8ff"
         ariaLabel="watch-loading"
         wrapperStyle={{}}
         wrapperClassName=""
