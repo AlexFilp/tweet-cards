@@ -69,6 +69,30 @@ export const CardFolowers = styled.p`
   margin-bottom: 26px;
 `;
 
+export const FollowButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+  border: none;
+  background-color: ${({ followed }) => (followed ? '#5cd3a8' : '#ebd8ff')};
+  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
+  border-radius: 10.3108px;
+  width: 196px;
+  height: 50px;
+  font-size: 18px;
+  line-height: 1.2;
+  transition: transform 250ms ease-in;
+  color: #373737;
+  font-family: 'Montserrat-SemiBold';
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
+`;
+
 export const CardBtn = styled.button`
   display: flex;
   justify-content: center;

@@ -7,11 +7,11 @@ import {
   Line,
   CardTweets,
   CardFolowers,
+  FollowButton,
 } from './CardItem.styled';
 import goitIcon from '../../assets/Images/Goit-icon.png';
 import cardImg from '../../assets/Images/card-img.png';
 import imageContainer from '../../assets/Images/circle.png';
-import { FollowButton } from '../../components/FollowBtn/FollowBtn';
 
 export const CardsItem = ({
   followers,
@@ -54,7 +54,7 @@ export const CardsItem = ({
       <CardTweets>{tweets} TWEETS</CardTweets>
       <CardFolowers>{followersNumber} FOLLOWERS</CardFolowers>
       <FollowButton
-        selected={followed}
+        followed={followed}
         disabled={isLoading ? true : false}
         onClick={followed ? unfollow : follow}
       >

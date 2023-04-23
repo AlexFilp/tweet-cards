@@ -45,7 +45,6 @@ const Tweets = () => {
       .then(data => {
         setAllUsers(data.length);
         firstFetchUsers(page).then(data => {
-          console.log(data);
           setUsers(prevState => [...prevState, ...data]);
           setShowLoadBtn(true);
         });
@@ -60,8 +59,6 @@ const Tweets = () => {
 
   useEffect(() => {
     cardsEndRef.current.scrollIntoView({ behavior: 'smooth' });
-    console.log(users);
-    console.log(allUsers);
     if (users.length >= allUsers) {
       setShowLoadBtn(false);
     }
@@ -73,7 +70,6 @@ const Tweets = () => {
     followUser(id, followers).then(() => {
       fetchUsers(page)
         .then(data => {
-          console.log(data);
           setUsers(data);
         })
         .catch(err => console.log(err))
@@ -88,7 +84,6 @@ const Tweets = () => {
     unfollowUser(id, followers).then(() => {
       fetchUsers(page)
         .then(data => {
-          console.log(data);
           setUsers(data);
         })
         .catch(err => console.log(err))
