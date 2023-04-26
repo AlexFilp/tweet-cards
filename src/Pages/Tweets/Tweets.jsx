@@ -30,6 +30,9 @@ const statusFilters = {
 const Tweets = () => {
   const [users, setUsers] = useState([]);
   const [allUsers, setAllUsers] = useState(0);
+  const [usersLC, setUsersLC] = useState(
+    JSON.parse(localStorage.getItem('allUsers') || users)
+  );
   const [isFirstLoading, setIsFirstLoading] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [loadingFollow, setLoadingFollow] = useState(false);
@@ -54,7 +57,6 @@ const Tweets = () => {
         setIsLoading(false);
         setIsFirstLoading(false);
       });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   useEffect(() => {
@@ -65,8 +67,20 @@ const Tweets = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [users.length, allUsers]);
 
+  useEffect(() => {
+    localStorage.setItem(
+      'allUsers',
+      JSON.stringify(
+        users.map(user => {
+          return { ...user, isFollowed: false };
+        })
+      )
+    );
+  }, [users]);
+
   const doFollowUser = (id, followers) => {
     setLoadingFollow(true);
+    setUsersLC(prevState => prevState.map(item => item.id === id));
     followUser(id, followers).then(() => {
       fetchUsers(page)
         .then(data => {
@@ -104,7 +118,7 @@ const Tweets = () => {
     }
   };
 
-  const visibleUsers = getVisibleUsers(users, filter);
+  const visibleUsers = getVisibleUsers(usersLC, filter);
 
   return (
     <CardContainer>
