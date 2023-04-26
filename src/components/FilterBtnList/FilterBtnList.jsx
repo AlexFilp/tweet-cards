@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   BtnList,
   FollowedButton,
@@ -48,6 +49,17 @@ export const FilterBtnList = ({
       </li>
     </BtnList>
   );
+};
+
+FilterBtnList.propTypes = {
+  filter: PropTypes.string.isRequired,
+  setFilter: PropTypes.func.isRequired,
+  statusFilters: PropTypes.shape({
+    all: PropTypes.string.isRequired,
+    followed: PropTypes.string.isRequired,
+    notFollowed: PropTypes.string.isRequired,
+  }).isRequired,
+  setisStatusFiltersAll: PropTypes.func.isRequired,
 };
 
 /* <Wrapper onClick={handleChange} isClick={isClick} />;

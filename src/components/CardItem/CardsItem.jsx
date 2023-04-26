@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   CardContainer,
   CardImage,
@@ -62,4 +63,15 @@ export const CardsItem = ({
       </FollowButton>
     </CardContainer>
   );
+};
+
+CardsItem.propTypes = {
+  followers: PropTypes.number.isRequired,
+  tweets: PropTypes.number.isRequired,
+  avatar: PropTypes.string.isRequired,
+  doFollowUser: PropTypes.func.isRequired,
+  doUnfollowUser: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  followed: PropTypes.bool.isRequired,
 };
