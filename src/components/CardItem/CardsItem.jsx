@@ -10,6 +10,7 @@ import {
   CardFolowers,
   FollowButton,
 } from './CardItem.styled';
+// import { TweetsPageLoader } from '../PageLoader/TweetsPageLoader';
 import goitIcon from '../../assets/Images/Goit-icon.png';
 import cardImg from '../../assets/Images/card-img.png';
 import imageContainer from '../../assets/Images/circle.png';
@@ -24,8 +25,6 @@ export const CardsItem = ({
   isLoading,
   followed,
 }) => {
-  // const [isLoading, setIsLoading] = useState(false);
-
   const getFollowers = () => {
     const followersNumber = followers;
     const arrayOfFollowers = Array.from(String(followersNumber));
