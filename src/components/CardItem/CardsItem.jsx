@@ -14,6 +14,7 @@ import {
 import goitIcon from '../../assets/Images/Goit-icon.png';
 import cardImg from '../../assets/Images/card-img.png';
 import imageContainer from '../../assets/Images/circle.png';
+import { TweetsPageLoader } from 'components/PageLoader/TweetsPageLoader';
 
 export const CardsItem = ({
   followers,
@@ -58,7 +59,7 @@ export const CardsItem = ({
         disabled={isLoading ? true : false}
         onClick={followed ? unfollow : follow}
       >
-        {followed ? 'FOLLOWING' : 'FOLLOW'}
+        {isLoading ? <TweetsPageLoader /> : followed ? 'FOLLOWING' : 'FOLLOW'}
       </FollowButton>
     </CardContainer>
   );
