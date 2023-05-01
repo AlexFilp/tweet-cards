@@ -37,6 +37,7 @@ const Tweets = () => {
   const [page, setPage] = useState(1);
   const [showLoadBtn, setShowLoadBtn] = useState(false);
   const [isStatusFiltersAll, setisStatusFiltersAll] = useState(true);
+  const [loadingBtnId, setLoadingBtnId] = useState(null);
   const cardsEndRef = useRef(null);
 
   useEffect(() => {
@@ -67,6 +68,7 @@ const Tweets = () => {
 
   const doFollowUser = (id, followers) => {
     setLoadingFollow(true);
+    setLoadingBtnId(id);
     followUser(id, followers).then(() => {
       fetchUsers(page)
         .then(data => {
@@ -75,12 +77,14 @@ const Tweets = () => {
         .catch(err => console.log(err))
         .finally(() => {
           setLoadingFollow(false);
+          setLoadingBtnId(null);
         });
     });
   };
 
   const doUnfollowUser = (id, followers) => {
     setLoadingFollow(true);
+    setLoadingBtnId(id);
     unfollowUser(id, followers).then(() => {
       fetchUsers(page)
         .then(data => {
@@ -89,6 +93,7 @@ const Tweets = () => {
         .catch(err => console.log(err))
         .finally(() => {
           setLoadingFollow(false);
+          setLoadingBtnId(null);
         });
     });
   };
@@ -134,9 +139,10 @@ const Tweets = () => {
               avatar={avatar}
               id={id}
               followed={followed}
-              isLoading={loadingFollow}
+              isLoading={loadingFollow && loadingBtnId === id}
               doFollowUser={doFollowUser}
               doUnfollowUser={doUnfollowUser}
+              setBtn={setLoadingBtnId}
             />
           )
         )}
