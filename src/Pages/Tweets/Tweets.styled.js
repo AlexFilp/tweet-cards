@@ -56,6 +56,7 @@ export const LoadMoreBtn = styled.button`
   line-height: 1.2;
   transition: transform 250ms ease-in;
   color: #373737;
+  cursor: pointer;
 
   margin-top: 20px;
 

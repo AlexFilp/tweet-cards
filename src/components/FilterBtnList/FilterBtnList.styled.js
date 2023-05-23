@@ -22,6 +22,7 @@ export const FollowedButton = styled.button`
   font-family: 'Montserrat-SemiBold';
   background-color: ${({ selected }) => (selected ? '#5cd3a8' : '#ebd8ff')};
   transform: ${({ selected }) => (selected ? 'scale(1.1)' : '#scale(1)')};
+  cursor: pointer;
 
   &:hover,
   &:focus {
@@ -45,6 +46,7 @@ export const NotfollowedButton = styled.button`
   font-family: 'Montserrat-SemiBold';
   background-color: ${({ selected }) => (selected ? '#5cd3a8' : '#ebd8ff')};
   transform: ${({ selected }) => (selected ? 'scale(1.1)' : '#scale(1)')};
+  cursor: pointer;
 
   &:hover,
   &:focus {
@@ -68,6 +70,7 @@ export const AllButton = styled.button`
   font-family: 'Montserrat-SemiBold';
   background-color: ${({ selected }) => (selected ? '#5cd3a8' : '#ebd8ff')};
   transform: ${({ selected }) => (selected ? 'scale(1.1)' : '#scale(1)')};
+  cursor: pointer;
 
   &:hover,
   &:focus {

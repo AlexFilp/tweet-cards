@@ -85,6 +85,7 @@ export const FollowButton = styled.button`
   line-height: 1.2;
   transition: transform 250ms ease-in;
   color: #373737;
+  cursor: pointer;
 
   &:hover,
   &:focus {
